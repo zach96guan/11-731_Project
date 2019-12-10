@@ -1,0 +1,16 @@
+newstest2019.Facebook_FAIR.6750.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.953497 BERT-R: 0.953284 BERT-F1: 0.953346
+newstest2019.JHU.6809.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.949737 BERT-R: 0.950043 BERT-F1: 0.949844
+newstest2019.MLLP-UPV.6899.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.951758 BERT-R: 0.950545 BERT-F1: 0.951105
+newstest2019.MSRA.MADL.6910.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.954113 BERT-R: 0.954604 BERT-F1: 0.954316
+newstest2019.NEU.6801.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.951707 BERT-R: 0.952074 BERT-F1: 0.951845
+newstest2019.PROMT_NMT_DE-EN.6683.de-en	roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.935989 BERT-R: 0.935409 BERT-F1: 0.935633
+newstest2019.RWTH_Aachen_System.6818.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.951123 BERT-R: 0.951775 BERT-F1: 0.951400
+newstest2019.TartuNLP-c.6502.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.942914 BERT-R: 0.941528 BERT-F1: 0.942163
+newstest2019.UCAM.6461.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.951398 BERT-R: 0.950921 BERT-F1: 0.951115
+newstest2019.dfki-nmt.6478.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.950335 BERT-R: 0.950452 BERT-F1: 0.950347
+newstest2019.online-A.0.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.946233 BERT-R: 0.947475 BERT-F1: 0.946803
+newstest2019.online-B.0.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.953086 BERT-R: 0.952001 BERT-F1: 0.952497
+newstest2019.online-G.0.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.941841 BERT-R: 0.941655 BERT-F1: 0.941689
+newstest2019.online-X.0.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.927511 BERT-R: 0.928998 BERT-F1: 0.928187
+newstest2019.online-Y.0.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.949276 BERT-R: 0.949923 BERT-F1: 0.949551
+newstest2019.uedin.6749.de-en roberta-large_L17_no-idf_version=0.2.2 BERT-P: 0.945738 BERT-R: 0.944365 BERT-F1: 0.944999
