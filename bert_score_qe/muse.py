@@ -1,6 +1,7 @@
 import io
 import numpy as np
 import re
+import os
 
 """class MuseTokenizer:
     def __init__(self, emb_path, nmax=50000): 
@@ -61,53 +62,59 @@ def read_corpus(file_path, word2id, embeddings):
 def main():
     src_vec_path = 'E:/Projects/wiki.multi.de.vec'
     tgt_vec_path = 'E:/Projects/wiki.multi.en.vec'
-    nmax = 10000  # maximum number of word embeddings to load
+    nmax = 150000  # maximum number of word embeddings to load
 
     src_embeddings, src_id2word, src_word2id = load_vec(src_vec_path, nmax)
     tgt_embeddings, tgt_id2word, tgt_word2id = load_vec(tgt_vec_path, nmax)
     #print(src_word2id)
 
     src_path = './newstest2019-deen-src.de'
-    tgt_path = './de-en/newstest2019.Facebook_FAIR.6750.de-en'
     src_sentences = read_corpus(src_path, src_word2id, src_embeddings)
-    tgt_sentences = read_corpus(tgt_path, tgt_word2id, tgt_embeddings)
+    tgts = os.listdir("./de-en/")
+    for system in tgts:
+        tgt_path = './de-en/' + system
+        tgt_sentences = read_corpus(tgt_path, tgt_word2id, tgt_embeddings)
     
-    scores = []
-    for i in range(len(src_sentences)):
-        src_sent = src_sentences[i]
-        tgt_sent = tgt_sentences[i]
-        if len(src_sent) == 0 or len(tgt_sent) == 0:
-            #print(i)
-            scores.append(1)
-            continue
+        scores = []
+        for i in range(len(src_sentences)):
+            src_sent = src_sentences[i]
+            tgt_sent = tgt_sentences[i]
+            if len(src_sent) == 0 or len(tgt_sent) == 0:
+                #print(i)
+                scores.append(1)
+                continue
 
-        # compute recall
-        cur_sum = 0
-        for src_wrd in src_sent:
-            cur_max = -2
-            for tgt_wrd in tgt_sent:
-                cur = np.dot(src_wrd, tgt_wrd)
-                if cur > cur_max:
-                    cur_max = cur
-            cur_sum += cur_max
-        R = cur_sum / len(src_sent)
-        #print(R)
-
-        # compute precision
-        cur_sum = 0
-        for tgt_wrd in tgt_sent:
-            cur_max = -2
+            # compute recall
+            cur_sum = 0
             for src_wrd in src_sent:
-                cur = np.dot(src_wrd, tgt_wrd)
-                if cur > cur_max:
-                    cur_max = cur
-            cur_sum += cur_max
-        P = cur_sum / len(tgt_sent)
+                cur_max = -2
+                for tgt_wrd in tgt_sent:
+                    cur = np.dot(src_wrd, tgt_wrd)
+                    if cur > cur_max:
+                        cur_max = cur
+                cur_sum += cur_max
+            R = cur_sum / len(src_sent)
+            #print(R)
 
-        # compute F1
-        F = 2 * P * R / (P + R)
-        #print("%.5f, %.5f %.5f" % (R, P, F))
-        scores.append(F)
+            # compute precision
+            cur_sum = 0
+            for tgt_wrd in tgt_sent:
+                cur_max = -2
+                for src_wrd in src_sent:
+                    cur = np.dot(src_wrd, tgt_wrd)
+                    if cur > cur_max:
+                        cur_max = cur
+                cur_sum += cur_max
+            P = cur_sum / len(tgt_sent)
+
+            # compute F1
+            F = 2 * P * R / (P + R)
+            #print("%.5f, %.5f %.5f" % (R, P, F))
+            scores.append(F)
+
+        avg = sum(scores) / len(scores)
+        print("%s: %.7f" % (system, avg))
+        #print(avg)
 
 if __name__ == '__main__':
     main()
